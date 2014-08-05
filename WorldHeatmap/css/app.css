@@ -1,0 +1,138 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+  background-color: #eef3f9;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  color: #00345e;
+}
+
+.wrapper {
+  width: 1024px;
+  margin: auto; 
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  font-size: 22px;
+  padding: 7px 15px;
+  color: #fff;
+  background-color: #00345e;
+}
+
+header .content .appname {
+  color: #3eb6ee;
+  font-size: 22px; 
+  font-weight: bold;
+}
+
+header .content .appdesc {
+  color: #fff;
+  font-size: 16px;
+}
+
+.dividerLine {
+  border-left: 2px solid #16222c; 
+  height:20px;
+  display: inline;
+  margin: 12px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 648px;
+  background-color: #fff;
+}
+
+.container .top {
+  height: 100%;
+}
+
+.container .top .right {
+  position: absolute;
+  width: 73%;
+  height: 100%;
+  display: inline-block;
+}
+
+.worldMapLegend {
+  position: absolute;
+  top: 10px;
+  left: 890px;
+  width: 119px;
+  height: 29px;
+  font-size: 12px;
+  font-weight: bold;
+  background: url(..//img/circle-legend.png) no-repeat;
+  background-size: 100% 100%;  
+  z-index: 1;
+}
+
+#worldMapLegend1 {
+  position: absolute;
+  left: 14px; 
+}
+
+#worldMapLegend2 {
+  position: absolute;
+  top: 9px;
+  left: -82px;
+  color: #3eb6ee;
+}
+
+.worldMapShades {
+  position: absolute;
+  top: 620px;
+  left: 680px;
+  width: 325px;
+  height: 15px;
+  font-size: 11px;
+  background: url(..//img/map-legend.png) no-repeat;
+  background-size: 100% 100%;  
+  z-index: 1;
+}
+
+#worldMapShade1 {
+  position: absolute;
+  left: 18px;
+}
+
+#worldMapShade2 {
+  position: absolute;
+  left: 144px;
+}
+
+#worldMapShade3 {
+  position: absolute;
+  left: 224px;
+}
+
+.container .top .right .worldMap{
+  width: 100%;
+  height: 100%;
+}
+
+#jVectorMap {
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 900px;
+  height: 600px;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center;
+  background: #004a78;
+}

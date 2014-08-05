@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Target vs Actual Chart</title>
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="content">
+        <span class="appname">Target vs Actual</span>
+        <div class="dividerLine"></div>
+        <span class="appdesc">Chart your Target vs Actual in both directions</span>
+      </div>
+    </header>
+    <div class="container">
+      <div class="top">
+        <div class="right">
+          <div class="metricFrameHolder">
+            <div class="metricFrame">
+              <div class="metric">
+                <div class="metricHeader">
+                  <div class="metricName">
+                    <h3>Actual >= Target is Good</h3><br/>Single Metric
+                  </div>
+                </div>  
+                <div class="metricChart"></div>
+              </div>
+              <div class="metric">
+                <div class="metricHeader">
+                  <div class="metricName">
+                    <h3>Actual >= Target is Bad</h3><br/>Single Metric
+                  </div>
+                </div>
+                <div class="metricChart negativeTrend"></div>
+              </div>
+              <div class="metric">
+                <div class="metricHeader">
+                  <div class="metricName">
+                    <h3>Actual >= Target is Good</h3><br/>Double Metric
+                  </div>
+                </div>
+                <div class="metricChart metricDoubleChart"></div>
+              </div>
+              <div class="metric">
+                <div class="metricHeader">
+                  <div class="metricName">
+                    <h3>Actual >= Target is Bad</h3><br/>Double Metric
+                  </div>
+                </div>
+                <div class="metricChart metricDoubleChart negativeTrend"></div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+    
+    <footer>
+    </footer>
+  </div>
+  
+  <!-- base JS libs -->
+  <script type="text/javascript" src="lib/jquery-1.8.0.min.js"></script>
+  <script src="js/polygonchart.js"></script>
+</body>
+</html>

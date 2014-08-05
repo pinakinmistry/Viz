@@ -1,0 +1,80 @@
+{
+    "en" : {
+    "title" : "",
+    "details.remittances.title.total" : "sent to home country by migrants",
+    "details.remittances.title.selected-country" : "sent to home country by emigrants",
+    "details.remittances.units" : "inflation adjusted 2011 US $",
+    "details.remittances.total" : "World",
+    "details.remittances.per-capita.title" : "per capita",
+    "per-capita" : "Per capita",
+    "search.country" : "Country",
+    "details.migrants.title.total" : "Migrants",
+    "details.migrants.title.selected-country" : "Emigrants",
+    "details.aid.title.total" : "Development aid received",
+    "details.aid.title.selected-country" : "Development aid received",
+    "details.migrants.title" : "Migrants",
+    "details.aid.title" : "Development aid received",
+    "money" : "{0}",
+    "amount.not-available" : "n/a",
+    "amount.billions" : "{0} kg",
+    "amount.billions.singular" : "{0} kg",
+    "amount.millions" : "{0} gram",
+    "amount.millions.singular" : "{0} gram",
+    "amount.thousands" : "{0} milligram",
+
+    "tooltip.migrants.number.from-a" : "{0} migrants from {1}",
+    "tooltip.remittances.amount" : "{0} sent to home country by emigrants",
+
+    "legend.migrants.number" : "Number of migrants",
+    "legend.migrants.low" : "Few",
+    "legend.migrants.high" : "Many",
+
+    "details.remittances.year" : "Year {0}",
+    "details.tseries.legend.remittances" : "Meteor Weight",
+    "details.tseries.legend.aid" : "",
+    "details.tseries.legend.remittances.per-capita" : "Remittances per capita",
+    "details.tseries.legend.aid.per-capita" : "Development aid per capita",
+
+    "sources" : "Sources",
+    "sources.remittances.type" : "Remittances",
+    "sources.remittances.name" : "World Bank",
+    "sources.remittances.info" : "All amounts have been inflation adjusted for 2011 based on the total DAC deflator.",
+    "sources.migration.type" : "Migration",
+    "sources.migration.name" : "World Bank",
+    "sources.migration.info" : "Migrant stocks are recorded only once per decade, for the years in-between, values have been interpolated linearly. For 2011 and 2012, numbers from 2010 as displayed.",
+    "sources.aid.type" : "Development aid",
+    "sources.aid.name" : "OECD",
+    "sources.aid.info" : "In the database, a few cases of negative annual totals occur due to redemption of earlier aid dept. Those values are displayed as 0 in the visualisation.",
+
+    "intro.prev" : "Prev",
+    "intro.next" : "Next",
+    "intro.go" : "Go for meteor shower of last 2 centuries and their stories",
+    "intro.skip" : "Skip intro",
+    "intro.show" : "Show intro",
+    "intro.start-exploring" : "Start now",
+    "intro.animation.type" : "Show by type",
+    "intro.animation.play" : "",
+    "intro.animation.stop" : "",
+
+    "intro.1.title" : "Incredible rise since 2000",
+    "intro.1.text" : "Remittances, money sent back home by migrants, have increased ever since data collection started in 1970. After 2000, however, the worldwide total downright skyrocketed from 204 billion USD (inflation adjusted) to 540 billion in 2012. In fact, only official transactions are counted towards that total. Experts estimate that at least another 250 billion are sent through inofficial channels such as legmen.",
+
+    "intro.2.title" : "Far bigger than foreign aid",
+    "intro.2.text" : "Debates on financial support for developing countries usually center around development aid (ODA). However, in 2011, the worldwide total of remittances was more than 2.5 times the sum that was spent on ODA. A lot of countries receive more financial support from their own migrants than from the international community.",
+
+    "intro.3.title" : "The average migrant sends more and more",
+    "intro.3.text" : "Remittances have not only increased in total. The average payment per migrant has doubled to roughly 2500 USD over the past ten years. The numbers have to be considered as estimates, though, since naturalised migrants (who might still send money home) are not counted towards the total number of migrants. Thus, actual average payments are likely to be lower.",
+
+    "intro.4.title" : "India and China far ahead",
+    "intro.4.text" : "The two most populated countries in the world, India and China, are also way ahead of the rest when it comes to remittance inflows. Indians sent home 71 billion USD to their home country in 2012, Chinese 62 billion. Next in the ranking are Mexico, the Philippines, Nigeria and Egypt, followed by the first European country, France.",
+
+    "intro.5.title" : "Declining flows to Greece and Turkey",
+    "intro.5.text" : "Only nine countries have seen a decline of remittances since 2000 (a few others had a negative trend, but no recent data is available). Remittances have fallen the most for Greece (-79%) and for Turkey (-83%). While Turkish migrants had sent home more than 7 billion USD in 2000, in 2011 that number had fallen below 1 billion.",
+
+    "intro.6.title" : "Crisis? What crisis?",
+    "intro.6.text" : "The global financial crisis that started in 2008 had only a short-term effect on remittances. In 2009, remittances decreased by 15 billion globally, the first notable decline ever. Mostly countries in Europe, Central and South America and Australia saw a decline. One year later, though, rapid growth was back on track.",
+
+    "intro.7.title" : "Explore the data yourself",
+    "intro.7.text" : "Now it's time for you to start exploring the data yourself. Click on the countries you're interested in the most and slide along the time axis. For each country, you will see how remittances have developed since 1970 and where most of the country's migrants live. The darker the colour, the more migrants from the selected country."
+  }
+}

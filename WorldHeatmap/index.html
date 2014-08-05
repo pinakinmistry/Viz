@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>World Heat Map</title>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/jquery-jvectormap.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="content">
+        <span class="appname">World Heat Map</span>
+        <div class="dividerLine"></div>
+        <span class="appdesc">Color Worldmap based on your numbers</span>
+      </div>
+    </header>
+    <div class="container">
+      <div class="top">
+        <div class="right">
+          <div class="worldMapShades">
+            <div id="worldMapShade1">Lags by >= 2.5%</div>
+            <div id="worldMapShade2">On Target</div>
+            <div id="worldMapShade3">Leads by >= 2.5%</div>
+          </div>
+          <div class="worldMap">
+            <div id='jVectorMap'></div>
+          </div>
+        </div>    
+      </div>
+    </div>
+    <footer>
+    </footer>
+  </div>
+  
+  <!-- base JS libs -->
+  <script type="text/javascript" src="lib/jquery-1.8.0.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/worldmap.js"></script>
+  <script src="lib/jVectorMap/jquery-jvectormap.js"></script>
+
+  <script src="lib/jVectorMap/jvectormap.js"></script>
+
+  <script src="lib/jVectorMap/abstract-element.js"></script>
+  <script src="lib/jVectorMap/abstract-canvas-element.js"></script>
+  <script src="lib/jVectorMap/abstract-shape-element.js"></script>
+
+  <script src="lib/jVectorMap/svg-element.js"></script>
+  <script src="lib/jVectorMap/svg-group-element.js"></script>
+  <script src="lib/jVectorMap/svg-canvas-element.js"></script>
+  <script src="lib/jVectorMap/svg-shape-element.js"></script>
+  <script src="lib/jVectorMap/svg-path-element.js"></script>
+  <script src="lib/jVectorMap/svg-circle-element.js"></script>
+
+  <script src="lib/jVectorMap/vml-element.js"></script>
+  <script src="lib/jVectorMap/vml-group-element.js"></script>
+  <script src="lib/jVectorMap/vml-canvas-element.js"></script>
+  <script src="lib/jVectorMap/vml-shape-element.js"></script>
+  <script src="lib/jVectorMap/vml-path-element.js"></script>
+  <script src="lib/jVectorMap/vml-circle-element.js"></script>
+
+  <script src="lib/jVectorMap/vector-canvas.js"></script>
+  <script src="lib/jVectorMap/simple-scale.js"></script>
+  <script src="lib/jVectorMap/numeric-scale.js"></script>
+  <script src="lib/jVectorMap/ordinal-scale.js"></script>
+  <script src="lib/jVectorMap/color-scale.js"></script>
+  <script src="lib/jVectorMap/data-series.js"></script>
+  <script src="lib/jVectorMap/proj.js"></script>
+  <script src="lib/jVectorMap/world-map.js"></script>
+
+  <script src="lib/jVectorMap/jquery-jvectormap-world-mill-en.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+  background-color: #eef3f9;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  color: #00345e;
+}
+
+select {
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
+
+.wrapper {
+  width: 1024px;
+  margin: auto; 
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  font-size: 22px;
+  padding: 7px 15px;
+  color: #fff;
+  background-color: #00345e;
+}
+
+header .content .appname {
+  color: #0085b9;
+  font-size: 22px; 
+  font-weight: bold;
+}
+
+header .content .appdesc {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold; 
+}
+
+header .content .regionDropdown {
+  float: right;
+  margin: 0px 0px;
+}
+
+.dividerLine {
+  border-left: 2px solid #16222c; 
+  height:20px;
+  display: inline;
+  margin: 12px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 648px;
+  background-color: #fff;
+}
+
+.container .top {
+  height: 100%;
+}
+
+.container .top .left {
+  width: 23%;
+  height: 100%;
+  padding: 5px 0 20px 20px;
+  display: none;
+}
+
+.container .bottom .right {
+  position: relative;
+  top: -60px;
+  left: 10px;
+  width: 62px;
+  height: 93px;
+  display: inline-block; 
+  background: url(..//img/right.png) no-repeat right center;
+  cursor: pointer;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: #004a78;
+  background-repeat: no-repeat;
+  background-position: 800px 10px;
+}
+
+.metricFrameHolder {
+  width: 103%;
+  height: 96%;
+}
+
+.metricFrame{
+  width: 100%;
+  height: auto;
+}
+
+.metric {
+  float: left;
+  position: relative;
+  top: 10px;
+  width: 485px;
+  height: 300px;
+  margin-left: 18px;
+  margin-bottom: 10px;
+}
+
+.metric div {
+  display: inline-block;
+  text-align: center;
+}
+
+.metricHeader{
+  width: 99%;
+  float: left;
+}
+
+.metricHeader .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #729cb6;
+  padding: 14px 5px;
+}
+
+.metric .metricChart {
+  width: 100%;
+  height: 70%;
+  margin: auto; 
+}
+
+.svgPolygonChart {
+  width: 100%;
+  height: 100%;
+}

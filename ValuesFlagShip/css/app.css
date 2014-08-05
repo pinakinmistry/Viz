@@ -1,0 +1,194 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, button,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+  background-color: #eef3f9;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  color: #00345e;
+}
+
+.wrapper {
+  width: 1024px;
+  margin: auto; 
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  font-size: 22px;
+  padding: 7px 15px;
+  color: #fff;
+  background-color: #00345e;
+}
+
+header .content .appname {
+  color: #3eb6ee;
+  font-size: 22px; 
+  font-weight: bold;
+}
+
+header .content .clientname {
+  color: #fff;
+  font-size: 16px;
+}
+
+.dividerLine {
+     border-left: 2px solid #16222c; 
+     height:20px;
+     display: inline;
+     margin: 12px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 648px;
+  background-color: #fff;
+}
+
+.container .top {
+  height: 100%;
+}
+
+.container .top .right {
+  position: absolute;
+  width: 73%;
+  height: 100%;
+  display: inline-block;
+}
+
+.legend {
+  position: absolute;
+  top: 10px;
+  left: 890px;
+  width: 119px;
+  height: 29px;
+  font-size: 12px;
+  font-weight: bold;
+  background: url(..//img/circle-legend.png) no-repeat;
+  background-size: 100% 100%;  
+  z-index: 1;
+}
+
+#legend1 {
+  position: absolute;
+  left: 14px; 
+}
+
+#legend2 {
+  position: absolute;
+  top: 9px;
+  left: -82px;
+  color: #3eb6ee;
+}
+
+#flagShip1 {
+  position: absolute;
+  top: 100px;
+  left: 120px;
+}
+
+#flagShip2 {
+  position: absolute;
+  top: 100px;
+  left: 420px;
+}
+
+#flagShip3 {
+  position: absolute;
+  top: 100px;
+  left: 720px;
+}
+
+.flagShip {
+  width: 160px;
+  height: 320px;
+  display: none;
+}
+
+.flagShip .topFlag {
+  margin-left: 50%;
+  width: 50%;
+  height: 86px;
+  border-left: 1px solid #003164;
+  display: block;
+}
+
+.flagShip .topFlag .flag {
+  width: 100%;
+  height: 22px;
+  background-color: #003164;
+}
+
+.flagShip .outerCircle {
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  border-radius: 20px;
+  background-color: #003164;
+  opacity: 0.7;
+}
+
+.flagShip .outerCircle .innerCircle{
+  position: relative;
+  top: 7.5px;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #3eb6ee;
+}
+
+.flagShip .outerCircle .bottomFlagStick {
+  position: relative;
+  top: 7.5px;
+  width: 50%;
+  height: 7.5px;
+  border-right: 1px solid #3eb6ee;
+}
+
+.flagShip .bottomFlag {
+  width: 50%;
+  height: 70px;
+  border-right: 1px solid #3eb6ee;
+  display: block;
+}
+
+.flagShip .bottomFlag .flag {
+  position: relative;
+  top:52px;
+  width: 100%;
+  height: 22px;
+  background-color: #3eb6ee;
+}
+
+.flag {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 5px 5px 5px #777;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center;
+  background: #004a78;
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Draggable Axes SVG Chart</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="styles/angular.slider.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+</head>
+
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <div ng-app="App">
+    <!-- Add your site or application content here -->
+    <div class="wrapper" ng-controller="MainCtrl">
+      <header>
+        <span class="title">Draggable Axes SVG Chart:</span> Drag'em to define quadratiles based on thresholds you like!
+      </header>
+      <div class="viewWrapper" ng-controller="ChartCtrl">
+          <div class="rightContainer">
+            <div class="chartBox noMarginBottom unselectable"
+              unselectable="ON" 
+              draggable-axes
+              data=dataDefinition
+              ontouchstart="preventPageScroll(event)"
+              ongesturestart="preventPageScoll(event)">
+              
+              <div class="draggableAxesChart"
+                onmousemove="moveElement(event, settings)"
+                ontouchmove="moveElement(event, settings)"
+                ongesturechange="moveElement(event, settings)"
+                onmouseup="deselectElement(event)"
+                ontouchend="deselectElement(event)"
+                ongestureend="deselectElement(event)">
+              </div>
+            </div>
+            <br>
+            <div class="saveReset">
+              <button class="btn btn-inverse" ng-click="resetMarkers($parent.settings)">RESET AXES</button>
+            </div>
+            <b>25X Zoom to go crazy with quality SVG provides!</b>
+            <slider floor="1" ceiling="25" step=".01" precision="2" ng-model="chart.zoom"
+              translate="noText"></slider>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="vendor/angular.slider.min.js"></script> 
+
+    <script src="vendor/lodash.compat.min.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src='scripts/controllers/views/chartCtrl.js'></script>
+    <script src='scripts/services/settings.js'></script>
+    <script src='scripts/directives/draggableAxes.js'></script>
+</body>
+</html>

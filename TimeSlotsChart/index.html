@@ -1,0 +1,114 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Time Slots SVG Chart</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="styles/angular.slider.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+</head>
+
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <div ng-app="App">
+    <!-- Add your site or application content here -->
+    <div class="wrapper" ng-controller="MainCtrl">
+      <header>
+        <span class="title">Time Slots SVG Chart:</span> Drag Flags to cut time slots based on data!
+      </header>
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="subtitle">NUMBER OF TIME SLOTS</div>
+          <select class="appendSelect" ng-model="settings.timeSlotsCount"
+            ng-options="value for value in settings.timeSlots">
+          </select>
+        </div>
+        <div class="span10">
+          <div class="subtitle">FUN TIP</div>
+          <i>Change number of time slots using up down arrow keys and see the magic!</i>
+        </div>
+      </div>
+      <div class="viewWrapper" ng-controller="ChartCtrl">
+          <div class="rightContainer">
+            <!-- <div class="chartBox noMarginBottom unselectable"
+              unselectable="ON" 
+              draggable-axes
+              data=dataDefinition
+              ontouchstart="preventPageScroll(event)"
+              ongesturestart="preventPageScoll(event)">
+              
+              <div class="draggableAxesChart"
+                onmousemove="moveElement(event, settings)"
+                ontouchmove="moveElement(event, settings)"
+                ongesturechange="moveElement(event, settings)"
+                onmouseup="deselectElement(event)"
+                ontouchend="deselectElement(event)"
+                ongestureend="deselectElement(event)">
+              </div>
+            </div> -->
+
+            <time-slots-chart class="chartBox timingsChartBox unselectable" unselectable="ON" 
+              time-slots-chart
+              data=dataDefinition
+              slots=settings.timeSlotsCount
+              ontouchstart="preventPageScroll(event)"
+              ongesturestart="preventPageScoll(event)">
+              <div class="deptTime deptTime{{$index}}" ng-style="{left: time.position}"
+                ng-repeat="time in $parent.settings.currentTimeSlotsStartTime">
+                {{time.value}}
+              </div>
+              <!-- <div class="magnifier">
+                <div class="magnifier-lense">
+                  <div class="magnifier-lense-content">
+                  </div>
+                </div>
+                <div class="magnifier-stick"></div>
+              </div> -->
+              <div class="definitionChart timingsChart"
+                onmousemove="moveTimeAxis(event, settings)"
+                ontouchmove="moveTimeAxis(event, settings)"
+                ongesturechange="moveTimeAxis(event, settings)"
+                onmouseup="deselectElement(event)"
+                ontouchend="deselectElement(event)"
+                ongestureend="deselectElement(event)">
+              </div>
+            </time-slots-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="vendor/angular.slider.min.js"></script> 
+
+    <script src="vendor/lodash.compat.min.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="lib/data.js"></script>
+    <script src='scripts/controllers/views/chartCtrl.js'></script>
+    <script src='scripts/services/settings.js'></script>
+    <script src='scripts/directives/timeSlots.js'></script>
+</body>
+</html>
