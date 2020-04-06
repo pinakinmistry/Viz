@@ -49,12 +49,12 @@
       <div class="viewWrapper" ng-controller="ChartCtrl">
           <div class="rightContainer">
             <!-- <div class="chartBox noMarginBottom unselectable"
-              unselectable="ON" 
+              unselectable="ON"
               draggable-axes
               data=dataDefinition
               ontouchstart="preventPageScroll(event)"
               ongesturestart="preventPageScoll(event)">
-              
+
               <div class="draggableAxesChart"
                 onmousemove="moveElement(event, settings)"
                 ontouchmove="moveElement(event, settings)"
@@ -65,7 +65,7 @@
               </div>
             </div> -->
 
-            <time-slots-chart class="chartBox timingsChartBox unselectable" unselectable="ON" 
+            <time-slots-chart class="chartBox timingsChartBox unselectable" unselectable="ON"
               time-slots-chart
               data=dataDefinition
               slots=settings.timeSlotsCount
@@ -92,6 +92,9 @@
               </div>
             </time-slots-chart>
           </div>
+          <footer>
+            Draggable time flags to cut data over a timeline. These flags are configurable in number for dynamic time slots. This one is hand made too.
+          </footer>
         </div>
       </div>
     </div>
@@ -99,7 +102,7 @@
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="vendor/angular.slider.min.js"></script> 
+    <script src="vendor/angular.slider.min.js"></script>
 
     <script src="vendor/lodash.compat.min.js"></script>
 
