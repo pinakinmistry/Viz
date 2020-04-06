@@ -8,14 +8,14 @@
 }
 
 body {
-  font-family: 'Century Gothic'; 
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   color: #666;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 button {
-  font-family: 'Century Gothic'; 
+  font-family: 'Century Gothic';
 }
 
 a {
@@ -23,13 +23,13 @@ a {
 }
 
 select {
-  font-family: 'Century Gothic'; 
+  font-family: 'Century Gothic';
 }
 
 .wrapper {
 position: relative;
   width: 1024px;
-  margin: auto; 
+  margin: auto;
   margin-bottom: 100px;
   overflow: hidden;
   background: #eaecee;
@@ -50,7 +50,7 @@ position: relative;
 
 header {
   width: 100%;
-  font-size: 22px;
+  font-size: 16px;
   padding: 7px 15px;
   color: #fff;
   background-color: #00345e;
@@ -58,7 +58,7 @@ header {
 
 header .title {
   color: lightskyblue;
-  font-size: 22px; 
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -161,15 +161,15 @@ header .title {
 }
 
 .popupRed{
-  border-right: 7px solid #cc0000; 
+  border-right: 7px solid #cc0000;
 }
 
 .popupGreen{
-  border-right: 7px solid #669933; 
+  border-right: 7px solid #669933;
 }
 
 .popupGrey{
-  border-right: 7px solid #c3c5c2; 
+  border-right: 7px solid #c3c5c2;
 }
 
 .chartHeaderInfo{
@@ -198,4 +198,11 @@ header .title {
   left: -25px;
   width: 480px;
   height: 70px;
+}
+
+footer {
+  padding: 10px 20px;
+  color: #fff;
+  background: #00345e;
+  float: left;
 }
