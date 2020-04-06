@@ -19,7 +19,7 @@ select {
 
 .wrapper {
   width: 1024px;
-  margin: auto; 
+  margin: auto;
   overflow: hidden;
 }
 
@@ -33,14 +33,14 @@ header {
 
 header .content .appname {
   color: #0085b9;
-  font-size: 22px; 
+  font-size: 22px;
   font-weight: bold;
 }
 
 header .content .appdesc {
   color: #fff;
   font-size: 16px;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 header .content .regionDropdown {
@@ -49,7 +49,7 @@ header .content .regionDropdown {
 }
 
 .dividerLine {
-  border-left: 2px solid #16222c; 
+  border-left: 2px solid #16222c;
   height:20px;
   display: inline;
   margin: 12px;
@@ -79,7 +79,7 @@ header .content .regionDropdown {
   left: 10px;
   width: 62px;
   height: 93px;
-  display: inline-block; 
+  display: inline-block;
   background: url(..//img/right.png) no-repeat right center;
   cursor: pointer;
 }
@@ -87,7 +87,8 @@ header .content .regionDropdown {
 footer {
   position: relative;
   width: 100%;
-  height: 40px;
+  padding: 10px 20px;
+  color: #fff;
   background: #004a78;
   background-repeat: no-repeat;
   background-position: 800px 10px;
@@ -133,7 +134,7 @@ footer {
 .metric .metricChart {
   width: 100%;
   height: 70%;
-  margin: auto; 
+  margin: auto;
 }
 
 .svgPolygonChart {
