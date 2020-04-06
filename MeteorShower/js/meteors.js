@@ -2,7 +2,7 @@ $(function() {
 
 var landColor = d3.rgb("#163346");  //1e2b32 .brighter(2)
 var width = $(document).width(),
-    height = $(document).height() - 40;
+    height = $(document).height() - 180;
 
 var visReady = false;
 
@@ -436,15 +436,15 @@ $("#stories .next").click(function() {
     $("#stories .story").fadeOut(200);
     imgIndex =  imgIndex + 1;
     setTimeout(function () {
-        $("#stories .storyImage").attr("src", "images/" + storiesImages[imgIndex]); 
+        $("#stories .storyImage").attr("src", "images/" + storiesImages[imgIndex]);
       }, 200);
     $("#stories .story").fadeIn(200);
     $("#stories .prev").css({'opacity': 1});
     if (imgIndex +1 == storiesImages.length) {
       $("#stories .next").css({'opacity': .1});
     }
-  } 
-    
+  }
+
 });
 
 $("#stories .prev").click(function() {
@@ -452,8 +452,8 @@ $("#stories .prev").click(function() {
     $("#stories .story").fadeOut(200);
     imgIndex = imgIndex - 1;
     setTimeout(function () {
-        $("#stories .storyImage").attr("src", "images/" + storiesImages[imgIndex]); 
-      }, 200);  
+        $("#stories .storyImage").attr("src", "images/" + storiesImages[imgIndex]);
+      }, 200);
     $("#stories .story").fadeIn(200);
     if (imgIndex == 0) {
       $("#stories .prev").css({'opacity': .1});
@@ -738,14 +738,14 @@ function updateTimeSeries() {
     renderTimeSeries("aid1", meteorClasswiseWeight[1]);
     renderTimeSeries("aid2", meteorClasswiseWeight[2]);
     d3.selectAll("#timeline g.tseries .remittances")
-         .attr("visibility", "hidden"); 
+         .attr("visibility", "hidden");
     d3.selectAll("#timeline g.tseries .aid")
          .attr("visibility", "visible");
     d3.selectAll("#timeline g.tseries .aid1")
          .attr("visibility", "visible");
     d3.selectAll("#timeline g.tseries .aid2")
          .attr("visibility", "visible");
-     
+
   } else {
     renderTimeSeries("remittances", remittances);
     d3.selectAll("#timeline g.tseries .aid")
@@ -755,7 +755,7 @@ function updateTimeSeries() {
     d3.selectAll("#timeline g.tseries .aid2")
          .attr("visibility", "hidden");
     d3.selectAll("#timeline g.tseries .remittances")
-         .attr("visibility", "visible"); 
+         .attr("visibility", "visible");
   }
 
   timeline.select("g.magnitudeAxis").call(magnitudeAxis);
@@ -1254,7 +1254,7 @@ queue()
 
     $("#loading").hide();
 //    yearAnimation.start();
-    
+
 
     remittanceTotalsByMigrantsOrigin = //nestBy("iso3", remittances);
       d3.nest()
@@ -1282,7 +1282,7 @@ queue()
        })
       .map(weightCountrywise);
 
-    
+
     remittanceTotals = calcTotalsByYear(remittances);
     meteorClasswiseWeight = meteorClassData;
     // aidTotalsByRecipient = aid["by-recipient"];
