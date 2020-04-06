@@ -23,7 +23,7 @@ body {
 
 .wrapper {
   width: 1024px;
-  margin: auto; 
+  margin: auto;
   overflow: hidden;
 }
 
@@ -37,7 +37,7 @@ header {
 
 header .content .appname {
   color: #3eb6ee;
-  font-size: 22px; 
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -47,8 +47,8 @@ header .content .clientname {
 }
 
 .dividerLine {
-     border-left: 2px solid #16222c; 
-     height:20px;
+     border-left: 2px solid #16222c;
+     height: 20px;
      display: inline;
      margin: 12px;
 }
@@ -56,7 +56,7 @@ header .content .clientname {
 .container {
   position: relative;
   width: 100%;
-  height: 648px;
+  height: 560px;
   background-color: #fff;
 }
 
@@ -80,13 +80,13 @@ header .content .clientname {
   font-size: 12px;
   font-weight: bold;
   background: url(..//img/circle-legend.png) no-repeat;
-  background-size: 100% 100%;  
+  background-size: 100% 100%;
   z-index: 1;
 }
 
 #legend1 {
   position: absolute;
-  left: 14px; 
+  left: 14px;
 }
 
 #legend2 {
@@ -189,6 +189,5 @@ footer {
   height: 20px;
   padding: 10px 20px;
   color: #fff;
-  text-align: center;
   background: #004a78;
 }
