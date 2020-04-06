@@ -37,12 +37,12 @@
       <div class="viewWrapper" ng-controller="ChartCtrl">
           <div class="rightContainer">
             <div class="chartBox noMarginBottom unselectable"
-              unselectable="ON" 
+              unselectable="ON"
               draggable-axes
               data=dataDefinition
               ontouchstart="preventPageScroll(event)"
               ongesturestart="preventPageScoll(event)">
-              
+
               <div class="draggableAxesChart"
                 onmousemove="moveElement(event, settings)"
                 ontouchmove="moveElement(event, settings)"
@@ -61,13 +61,16 @@
               translate="noText"></slider>
           </div>
         </div>
+        <footer>
+          This chart has 2 vertical and 1 horizontal draggable axes to cut the quadrant into 6 quadratiles to divide the data into different categories. It has feature of 25X zoom to study dense data and reset the axes to original positions. This one is hand made using just HTML, CSS, JavaScript and SVG; no ready made libraries used.
+        </footer>
       </div>
     </div>
     </div>
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="vendor/angular.slider.min.js"></script> 
+    <script src="vendor/angular.slider.min.js"></script>
 
     <script src="vendor/lodash.compat.min.js"></script>
 
