@@ -15,7 +15,7 @@ body {
 
 .wrapper {
   width: 1024px;
-  margin: auto; 
+  margin: auto;
   overflow: hidden;
 }
 
@@ -29,7 +29,7 @@ header {
 
 header .content .appname {
   color: #3eb6ee;
-  font-size: 22px; 
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -39,7 +39,7 @@ header .content .appdesc {
 }
 
 .dividerLine {
-  border-left: 2px solid #16222c; 
+  border-left: 2px solid #16222c;
   height:20px;
   display: inline;
   margin: 12px;
@@ -72,13 +72,13 @@ header .content .appdesc {
   font-size: 12px;
   font-weight: bold;
   background: url(..//img/circle-legend.png) no-repeat;
-  background-size: 100% 100%;  
+  background-size: 100% 100%;
   z-index: 1;
 }
 
 #worldMapLegend1 {
   position: absolute;
-  left: 14px; 
+  left: 14px;
 }
 
 #worldMapLegend2 {
@@ -96,7 +96,7 @@ header .content .appdesc {
   height: 15px;
   font-size: 11px;
   background: url(..//img/map-legend.png) no-repeat;
-  background-size: 100% 100%;  
+  background-size: 100% 100%;
   z-index: 1;
 }
 
@@ -133,6 +133,5 @@ footer {
   height: 20px;
   padding: 10px 20px;
   color: #fff;
-  text-align: center;
   background: #004a78;
 }
