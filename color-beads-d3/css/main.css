@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic;
 }
 
 .tick line {
@@ -9,4 +10,9 @@ body {
 
 .groups text {
   fill: #fff;
+}
+
+.tick text {
+  font-size: 14px;
+  fill: #999;
 }
