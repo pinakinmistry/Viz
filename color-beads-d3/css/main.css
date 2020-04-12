@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-circle {
-  fill: steelblue;
-}
-
 .tick line {
   stroke: #aaa;
   stroke-width:0.8;
