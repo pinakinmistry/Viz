@@ -6,3 +6,7 @@ body {
   stroke: #aaa;
   stroke-width:0.8;
 }
+
+.groups text {
+  fill: #fff;
+}

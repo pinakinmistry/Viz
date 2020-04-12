@@ -7,15 +7,14 @@ import {
   axisLeft,
 } from 'd3';
 
-const margin = {
-  top: 200,
-  bottom: 200,
-  left: 200,
-  right: 200
-};
-
 const width = document.body.clientWidth;
 const height = document.body.clientHeight;
+const margin = {
+  top: height * .2,
+  bottom: height * .2,
+  left: width * .25,
+  right: width * .25
+};
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
@@ -40,7 +39,6 @@ for (let r = 1; r <= rowCount; r++) {
 }
 
 console.log(data);
-// const data = [0, 1, 2, 3, 4, 5];
 
 // Scale
 const xScale = scaleLinear()
@@ -104,13 +102,21 @@ gradients
     .attr('offset', '100%')
     .attr('style', d => `stop-color:${d.color2};stop-opacity:1`);
 
-// Circles
-const circles = g.selectAll('circle')
-  .data(data);
+// Grouping for circle and text
+const groups = g.selectAll('g.groups').data(data)
+  .enter().append('g')
+    .attr('class', 'groups')
+    .attr('transform', d => `translate(${xScale(d.x)}, ${yScale(d.y)})`);
 
-circles.enter()
+// Circles
+groups
   .append('circle')
-    .attr('cx', d => xScale(d.x))
-    .attr('cy', d => yScale(d.y))
     .attr('r', 20)
     .style('fill', d => `url(#grad${Math.round(d.value / 10)})`);
+
+// Text
+groups
+  .append('text')
+    .text(d => Math.round(d.value / 10))
+    .attr('text-anchor', 'middle')
+    .attr('dy', 5);
