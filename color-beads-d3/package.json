@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
+    "watch": "webpack --watch",
     "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
     "start": "http-server"
   },
