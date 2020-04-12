@@ -2,6 +2,7 @@ import {
   select,
   scaleLinear,
   max,
+  median,
   axisBottom,
   axisLeft,
 } from 'd3';
@@ -50,6 +51,10 @@ const yScale = scaleLinear()
   .domain([0, max(data, d => d.y)])
   .range([innerHeight, 0]);
 
+const colorScale = scaleLinear()
+  .domain([0, median(data, d=> d.value), max(data, d=> d.value)])
+  .range(['#66cc33', '#ffff33', '#e4e6e3']);
+
 const g = svg.append('g')
   .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
@@ -72,4 +77,5 @@ circles.enter()
   .append('circle')
     .attr('cx', d => xScale(d.x))
     .attr('cy', d => yScale(d.y))
-    .attr('r', 20);
+    .attr('r', 20)
+    .style('fill', d => colorScale(d.value));
