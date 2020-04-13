@@ -33,7 +33,7 @@ for (let r = 1; r <= rowCount; r++) {
     data.push({
       x: c,
       y: r,
-      value: Math.round(Math.random() * 100),
+      value: Math.round(Math.random() * 10),
     });
   }
 }
@@ -69,17 +69,17 @@ g.append('g').call(yAxis);
 
 // Gradients
 const gradientArray = [
-  {bead: '0', id: "grad0", color1: "#66cc33", color2: "#669933"},
-  {bead: '1', id: "grad1", color1: "#66cc33", color2: "#669933"},
-  {bead: '2', id: "grad2", color1: "#0099cc", color2: "#006699"},
-  {bead: '3', id: "grad3", color1: "#cc9966", color2: "#996633"},
-  {bead: '4', id: "grad4", color1: "#ffff33", color2: "#cc9933"},
-  {bead: '5', id: "grad5", color1: "#ff9900", color2: "#cc6600"},
-  {bead: '6', id: "grad6", color1: "#ff0000", color2: "#cc0000"},
-  {bead: '7', id: "grad7", color1: "#e4e6e3", color2: "#c3c5c2"},
-  {bead: '8', id: "grad8", color1: "#e4e6e3", color2: "#c3c5c2"},
-  {bead: '9', id: "grad9", color1: "#e4e6e3", color2: "#c3c5c2"},
-  {bead: '10', id: "grad10", color1: "#e4e6e3", color2: "#c3c5c2"}
+  {bead: 0, id: "grad0", color1: "#66cc33", color2: "#669933"},
+  {bead: 1, id: "grad1", color1: "#66cc33", color2: "#669933"},
+  {bead: 2, id: "grad2", color1: "#0099cc", color2: "#006699"},
+  {bead: 3, id: "grad3", color1: "#cc9966", color2: "#996633"},
+  {bead: 4, id: "grad4", color1: "#ffff33", color2: "#cc9933"},
+  {bead: 5, id: "grad5", color1: "#ff9900", color2: "#cc6600"},
+  {bead: 6, id: "grad6", color1: "#ff0000", color2: "#cc0000"},
+  {bead: 7, id: "grad7", color1: "#e4e6e3", color2: "#c3c5c2"},
+  {bead: 8, id: "grad8", color1: "#e4e6e3", color2: "#c3c5c2"},
+  {bead: 9, id: "grad9", color1: "#e4e6e3", color2: "#c3c5c2"},
+  {bead: 10, id: "grad10", color1: "#e4e6e3", color2: "#c3c5c2"}
 ];
 
 const defs = g.append('defs');
@@ -109,14 +109,44 @@ const groups = g.selectAll('g.groups').data(data)
     .attr('transform', d => `translate(${xScale(d.x)}, ${yScale(d.y)})`);
 
 // Circles
-groups
+const circles = groups
   .append('circle')
     .attr('r', 20)
-    .style('fill', d => `url(#grad${Math.round(d.value / 10)})`);
+    .style('fill', d => `url(#grad${d.value})`);
 
 // Text
 groups
-  .append('text')
-    .text(d => Math.round(d.value / 10))
-    .attr('text-anchor', 'middle')
-    .attr('dy', 5);
+.append('text')
+  .text(d => d.value)
+  .attr('text-anchor', 'middle')
+  .attr('dy', 7);
+
+// Interactivity
+circles.on('click', d => {
+  const tray = g.append('g')
+    .attr('transform', `translate(${innerWidth / 2 - 250}, ${innerHeight / 2 - 30})`);
+
+  tray.append('rect')
+    .attr('width', 510)
+    .attr('height', 60)
+    .attr('fill', '#fff')
+    .attr('stroke', '#bbb')
+    .attr('stroke-width', 2);
+
+  let bead = 0;
+  gradientArray.forEach(grad => {
+    if(grad.bead !== d.value) {
+      const grp = tray.append('g')
+        .attr('transform', `translate(${bead++ * 50 + 30},30)`);
+
+      grp.append('circle')
+        .attr('r', 20)
+        .style('fill', () => `url(#${grad.id})`);
+
+      grp.append('text')
+        .text(grad.bead)
+        .attr('text-anchor', 'middle')
+        .attr('dy', 7);
+    }
+  })
+});

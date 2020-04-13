@@ -8,6 +8,10 @@ body {
   stroke-width:0.8;
 }
 
+circle, .groups text {
+  cursor: pointer;
+}
+
 .groups text {
   fill: #fff;
 }
