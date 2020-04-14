@@ -5,6 +5,7 @@ import {
   median,
   axisBottom,
   axisLeft,
+  event,
 } from 'd3';
 
 const width = document.body.clientWidth;
@@ -116,22 +117,48 @@ const circles = groups
 
 // Text
 groups
-.append('text')
-  .text(d => d.value)
-  .attr('text-anchor', 'middle')
-  .attr('dy', 7);
+  .append('text')
+    .text(d => d.value)
+    .attr('text-anchor', 'middle')
+    .attr('dy', 7);
+
+// Shadow
+const filter = defs.append("filter")
+    .attr("id", "drop-shadow")
+    .attr("height", "130%");
+
+filter.append("feGaussianBlur")
+    .attr("in", "SourceAlpha")
+    .attr("stdDeviation", 5)
+    .attr("result", "blur");
+
+filter.append("feOffset")
+    .attr("in", "blur")
+    .attr("dx", 5)
+    .attr("dy", 5)
+    .attr("result", "offsetBlur");
+
+const feMerge = filter.append("feMerge");
+
+feMerge.append("feMergeNode")
+    .attr("in", "offsetBlur")
+feMerge.append("feMergeNode")
+    .attr("in", "SourceGraphic");
 
 // Interactivity
 circles.on('click', d => {
+  event.stopPropagation();
+  select('#tray').remove();
   const tray = g.append('g')
-    .attr('transform', `translate(${innerWidth / 2 - 250}, ${innerHeight / 2 - 30})`);
+    .attr('id', 'tray')
+    .attr('transform', `translate(${innerWidth / 2 - 250}, ${yScale(d.y - .5)})`);
 
   tray.append('rect')
     .attr('width', 510)
     .attr('height', 60)
     .attr('fill', '#fff')
-    .attr('stroke', '#bbb')
-    .attr('stroke-width', 2);
+    .attr('stroke-width', 2)
+    .style("filter", "url(#drop-shadow)");
 
   let bead = 0;
   gradientArray.forEach(grad => {
@@ -150,3 +177,7 @@ circles.on('click', d => {
     }
   })
 });
+
+svg.on('click', () => {
+  select('#tray').remove();
+})
