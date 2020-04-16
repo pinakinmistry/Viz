@@ -20,6 +20,11 @@ text.updated {
   fill: #000;
 }
 
+circle.updated {
+  stroke: #666;
+  stroke-width: 3;
+}
+
 .tick text {
   font-size: 14px;
   fill: #999;

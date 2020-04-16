@@ -34,6 +34,7 @@ for (let r = 1; r <= rowCount; r++) {
       x: c,
       y: r,
       value: Math.round(Math.random() * 6 + 1),
+      class: '',
     });
   }
 }
@@ -130,14 +131,16 @@ const render = () => {
   circles = groups
     .append('circle')
       .attr('r', 20)
+      .attr('class', d => d.class)
       .style('fill', d => `url(#grad${d.value})`);
 
   // Text
   groups
     .append('text')
-      .text(d => d.value)
-      .attr('text-anchor', 'middle')
-      .attr('dy', 7);
+    .text(d => d.value)
+    .attr('class', d => d.class)
+    .attr('text-anchor', 'middle')
+    .attr('dy', 7);
   setInteractivity();
 };
 
@@ -145,9 +148,7 @@ const setInteractivity = () => {
   // Interactivity
   circles.on('click', function(d) {
     event.stopPropagation();
-    const circleSelected = select(this);
-    const circleSelectedText = select(this.nextSibling);
-    const circleSelectedData = d;
+    const circleSelected = d;
 
     select('#tray').remove();
     const tray = g.append('g')
@@ -168,6 +169,7 @@ const setInteractivity = () => {
 
     const gradientCircles = gradientGrp.append('circle')
       .attr('r', 20)
+      .attr('class', 'updated')
       .style('fill', d => `url(#${d.id})`);
 
     gradientGrp.append('text')
@@ -177,8 +179,9 @@ const setInteractivity = () => {
 
     // Update Circle Interactivity
     gradientCircles.on('click', d => {
-      data[circleSelectedData.y * rowCount + circleSelectedData.x - rowCount - 1].value = d.bead;
-      console.log(data[circleSelectedData.y * rowCount + circleSelectedData.x - rowCount - 1]);
+      const selectedCircleData = data[circleSelected.y * rowCount + circleSelected.x - rowCount - 1];
+      selectedCircleData.value = d.bead;
+      selectedCircleData.class = 'updated';
       groups.remove();
       render();
     });
