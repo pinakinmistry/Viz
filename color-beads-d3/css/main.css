@@ -16,6 +16,10 @@ circle, .groups text {
   fill: #fff;
 }
 
+text.updated {
+  fill: #000;
+}
+
 .tick text {
   font-size: 14px;
   fill: #999;

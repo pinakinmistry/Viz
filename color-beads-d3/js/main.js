@@ -34,7 +34,7 @@ for (let r = 1; r <= rowCount; r++) {
     data.push({
       x: c,
       y: r,
-      value: Math.round(Math.random() * 10),
+      value: Math.round(Math.random() * 6 + 1),
     });
   }
 }
@@ -70,17 +70,13 @@ g.append('g').call(yAxis);
 
 // Gradients
 const gradientArray = [
-  {bead: 0, id: "grad0", color1: "#66cc33", color2: "#669933"},
   {bead: 1, id: "grad1", color1: "#66cc33", color2: "#669933"},
   {bead: 2, id: "grad2", color1: "#0099cc", color2: "#006699"},
   {bead: 3, id: "grad3", color1: "#cc9966", color2: "#996633"},
   {bead: 4, id: "grad4", color1: "#ffff33", color2: "#cc9933"},
   {bead: 5, id: "grad5", color1: "#ff9900", color2: "#cc6600"},
   {bead: 6, id: "grad6", color1: "#ff0000", color2: "#cc0000"},
-  {bead: 7, id: "grad7", color1: "#e4e6e3", color2: "#c3c5c2"},
-  {bead: 8, id: "grad8", color1: "#e4e6e3", color2: "#c3c5c2"},
-  {bead: 9, id: "grad9", color1: "#e4e6e3", color2: "#c3c5c2"},
-  {bead: 10, id: "grad10", color1: "#e4e6e3", color2: "#c3c5c2"}
+  {bead: 7, id: "grad7", color1: "#e4e6e3", color2: "#c3c5c2"}
 ];
 
 const defs = g.append('defs');
@@ -146,36 +142,47 @@ feMerge.append("feMergeNode")
     .attr("in", "SourceGraphic");
 
 // Interactivity
-circles.on('click', d => {
+circles.on('click', function(d) {
   event.stopPropagation();
+  const circleSelected = select(this);
+  const circleSelectedText = select(this.nextSibling);
+
   select('#tray').remove();
   const tray = g.append('g')
     .attr('id', 'tray')
-    .attr('transform', `translate(${innerWidth / 2 - 250}, ${yScale(d.y - .5)})`);
+    .attr('transform', `translate(${innerWidth / 2 - 120}, ${yScale(d.y - .5)})`);
 
   tray.append('rect')
-    .attr('width', 510)
+    .attr('width', 310)
     .attr('height', 60)
     .attr('fill', '#fff')
     .attr('stroke-width', 2)
     .style("filter", "url(#drop-shadow)");
 
-  let bead = 0;
-  gradientArray.forEach(grad => {
-    if(grad.bead !== d.value) {
-      const grp = tray.append('g')
-        .attr('transform', `translate(${bead++ * 50 + 30},30)`);
 
-      grp.append('circle')
-        .attr('r', 20)
-        .style('fill', () => `url(#${grad.id})`);
+  const gradientGrp = tray.selectAll('g.gradient')
+    .data(gradientArray.filter(g => g.bead !== d.value ))
+    .enter().append('g')
+    .attr('transform', (d, i) => `translate(${i * 50 + 30},30)`);
 
-      grp.append('text')
-        .text(grad.bead)
-        .attr('text-anchor', 'middle')
-        .attr('dy', 7);
-    }
-  })
+  const gradientCircles = gradientGrp.append('circle')
+    .attr('r', 20)
+    .style('fill', d => `url(#${d.id})`);
+
+  gradientGrp.append('text')
+    .text(d => d.bead)
+    .attr('text-anchor', 'middle')
+    .attr('dy', 7);
+
+  // Update Circle Interactivity
+  gradientCircles.on('click', d => {
+    circleSelected
+      .style('fill', `url(#${d.id})`);
+    circleSelectedText
+      .text(d.bead)
+      .attr('class', 'updated');
+  });
+
 });
 
 svg.on('click', () => {
