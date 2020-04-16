@@ -2,7 +2,6 @@ import {
   select,
   scaleLinear,
   max,
-  median,
   axisBottom,
   axisLeft,
   event,
@@ -27,7 +26,7 @@ const svg = select('body')
 // Data
 const rowCount = 10;
 const columnCount = 10;
-const data = [];
+let data = [];
 
 for (let r = 1; r <= rowCount; r++) {
   for(let c = 1; c <= columnCount; c++) {
@@ -49,10 +48,6 @@ const xScale = scaleLinear()
 const yScale = scaleLinear()
   .domain([0, max(data, d => d.y)])
   .range([innerHeight, 0]);
-
-const colorScale = scaleLinear()
-  .domain([0, median(data, d=> d.value), max(data, d=> d.value)])
-  .range(['#66cc33', '#ffff33', '#e4e6e3']);
 
 const g = svg.append('g')
   .attr('transform', `translate(${margin.left}, ${margin.top})`);
@@ -99,92 +94,99 @@ gradients
     .attr('offset', '100%')
     .attr('style', d => `stop-color:${d.color2};stop-opacity:1`);
 
-// Grouping for circle and text
-const groups = g.selectAll('g.groups').data(data)
-  .enter().append('g')
-    .attr('class', 'groups')
-    .attr('transform', d => `translate(${xScale(d.x)}, ${yScale(d.y)})`);
-
-// Circles
-const circles = groups
-  .append('circle')
-    .attr('r', 20)
-    .style('fill', d => `url(#grad${d.value})`);
-
-// Text
-groups
-  .append('text')
-    .text(d => d.value)
-    .attr('text-anchor', 'middle')
-    .attr('dy', 7);
-
 // Shadow
 const filter = defs.append("filter")
-    .attr("id", "drop-shadow")
-    .attr("height", "130%");
+  .attr("id", "drop-shadow")
+  .attr("height", "130%");
 
 filter.append("feGaussianBlur")
-    .attr("in", "SourceAlpha")
-    .attr("stdDeviation", 5)
-    .attr("result", "blur");
+  .attr("in", "SourceAlpha")
+  .attr("stdDeviation", 5)
+  .attr("result", "blur");
 
 filter.append("feOffset")
-    .attr("in", "blur")
-    .attr("dx", 5)
-    .attr("dy", 5)
-    .attr("result", "offsetBlur");
+  .attr("in", "blur")
+  .attr("dx", 5)
+  .attr("dy", 5)
+  .attr("result", "offsetBlur");
 
 const feMerge = filter.append("feMerge");
 
 feMerge.append("feMergeNode")
-    .attr("in", "offsetBlur")
+  .attr("in", "offsetBlur")
 feMerge.append("feMergeNode")
-    .attr("in", "SourceGraphic");
+  .attr("in", "SourceGraphic");
 
-// Interactivity
-circles.on('click', function(d) {
-  event.stopPropagation();
-  const circleSelected = select(this);
-  const circleSelectedText = select(this.nextSibling);
+let groups, circles;
 
-  select('#tray').remove();
-  const tray = g.append('g')
-    .attr('id', 'tray')
-    .attr('transform', `translate(${innerWidth / 2 - 120}, ${yScale(d.y - .5)})`);
-
-  tray.append('rect')
-    .attr('width', 310)
-    .attr('height', 60)
-    .attr('fill', '#fff')
-    .attr('stroke-width', 2)
-    .style("filter", "url(#drop-shadow)");
-
-
-  const gradientGrp = tray.selectAll('g.gradient')
-    .data(gradientArray.filter(g => g.bead !== d.value ))
+const render = () => {
+  // Grouping for circle and text
+  groups = g.selectAll('g.groups').data(data)
     .enter().append('g')
-    .attr('transform', (d, i) => `translate(${i * 50 + 30},30)`);
+      .attr('class', 'groups')
+      .attr('transform', d => `translate(${xScale(d.x)}, ${yScale(d.y)})`);
 
-  const gradientCircles = gradientGrp.append('circle')
-    .attr('r', 20)
-    .style('fill', d => `url(#${d.id})`);
+  // Circles
+  circles = groups
+    .append('circle')
+      .attr('r', 20)
+      .style('fill', d => `url(#grad${d.value})`);
 
-  gradientGrp.append('text')
-    .text(d => d.bead)
-    .attr('text-anchor', 'middle')
-    .attr('dy', 7);
+  // Text
+  groups
+    .append('text')
+      .text(d => d.value)
+      .attr('text-anchor', 'middle')
+      .attr('dy', 7);
+  setInteractivity();
+};
 
-  // Update Circle Interactivity
-  gradientCircles.on('click', d => {
-    circleSelected
-      .style('fill', `url(#${d.id})`);
-    circleSelectedText
-      .text(d.bead)
-      .attr('class', 'updated');
+const setInteractivity = () => {
+  // Interactivity
+  circles.on('click', function(d) {
+    event.stopPropagation();
+    const circleSelected = select(this);
+    const circleSelectedText = select(this.nextSibling);
+    const circleSelectedData = d;
+
+    select('#tray').remove();
+    const tray = g.append('g')
+      .attr('id', 'tray')
+      .attr('transform', `translate(${innerWidth / 2 - 120}, ${yScale(d.y - .5)})`);
+
+    tray.append('rect')
+      .attr('width', 310)
+      .attr('height', 60)
+      .attr('fill', '#fff')
+      .attr('stroke-width', 2)
+      .style("filter", "url(#drop-shadow)");
+
+    const gradientGrp = tray.selectAll('g.gradient')
+      .data(gradientArray.filter(g => g.bead !== d.value ))
+      .enter().append('g')
+      .attr('transform', (d, i) => `translate(${i * 50 + 30},30)`);
+
+    const gradientCircles = gradientGrp.append('circle')
+      .attr('r', 20)
+      .style('fill', d => `url(#${d.id})`);
+
+    gradientGrp.append('text')
+      .text(d => d.bead)
+      .attr('text-anchor', 'middle')
+      .attr('dy', 7);
+
+    // Update Circle Interactivity
+    gradientCircles.on('click', d => {
+      data[circleSelectedData.y * rowCount + circleSelectedData.x - rowCount - 1].value = d.bead;
+      console.log(data[circleSelectedData.y * rowCount + circleSelectedData.x - rowCount - 1]);
+      groups.remove();
+      render();
+    });
   });
-
-});
+};
 
 svg.on('click', () => {
   select('#tray').remove();
-})
+});
+
+render();
